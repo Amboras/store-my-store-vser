@@ -490,11 +490,32 @@ Generates a complete store from a created plan.
 4. Sets up environment variables
 5. Generates custom components as needed
 6. Creates README with setup instructions
+7. **CRITICAL: Automated Verification & Testing** ⚠️
+   - Run `make dev` to start backend + storefront
+   - Check logs for startup errors
+   - Test all API endpoints:
+     - GET `/store/products` → verify products load
+     - POST `/store/cart` → verify cart creation
+     - POST `/store/cart/line-items` → verify add to cart
+   - Hit the storefront at `localhost:3000`:
+     - Verify homepage loads
+     - Verify product pages show prices
+     - Verify add to cart works
+   - If ANY test fails:
+     - Diagnose the root cause
+     - Fix the issue automatically
+     - Re-run tests
+     - Iterate until ALL tests pass
+   - Only report "Implementation complete" after all verification passes
 
 **Output:**
 - Complete store in `generated-stores/{store-name}/`
 - Environment configuration
 - Setup documentation
+- **Verified working state** (all APIs tested and functional)
+
+**Why This Matters:**
+Without automated testing, issues like wrong module paths, missing API keys, incorrect SDK usage, or missing region setup go undetected until the user manually tests. This wastes time and breaks trust. The implementation MUST verify itself before claiming success.
 
 ### /edit-store
 

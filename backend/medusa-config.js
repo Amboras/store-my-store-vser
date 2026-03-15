@@ -19,17 +19,28 @@ module.exports = defineConfig({
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
     backendUrl: process.env.MEDUSA_ADMIN_BACKEND_URL || "http://localhost:9000",
   },
-  modules: [
-    {
-      resolve: "@medusajs/medusa/cache-redis",
+  modules: {
+    // Cache using Redis
+    cacheService: {
+      resolve: "@medusajs/cache-redis",
       options: {
         redisUrl: process.env.REDIS_URL || "redis://localhost:6379",
       },
     },
-    {
-      resolve: "@medusajs/medusa/event-bus-redis",
+    // Event bus using Redis
+    eventBusService: {
+      resolve: "@medusajs/event-bus-redis",
       options: {
         redisUrl: process.env.REDIS_URL || "redis://localhost:6379",
+      },
+    },
+  },
+  plugins: [
+    // Stripe payment provider
+    {
+      resolve: "@medusajs/payment-stripe",
+      options: {
+        apiKey: process.env.STRIPE_API_KEY,
       },
     },
   ],
