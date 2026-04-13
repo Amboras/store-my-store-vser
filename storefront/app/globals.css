@@ -4,15 +4,16 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 0 0% 10%;
-    --muted: 40 10% 94%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 35 40% 50%;
+    /* Fun pet store palette — warm sunshine yellow + playful coral accent */
+    --background: 48 100% 97%;
+    --foreground: 220 30% 12%;
+    --muted: 48 60% 92%;
+    --muted-foreground: 220 15% 45%;
+    --accent: 16 90% 58%;
     --accent-foreground: 0 0% 100%;
-    --border: 40 10% 88%;
-    --ring: 35 40% 50%;
-    --primary: 0 0% 10%;
+    --border: 48 40% 85%;
+    --ring: 16 90% 58%;
+    --primary: 220 30% 12%;
     --primary-foreground: 0 0% 98%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
@@ -23,16 +24,16 @@
   }
 
   .dark {
-    --background: 0 0% 6%;
-    --foreground: 40 20% 94%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 35 45% 55%;
+    --background: 220 25% 10%;
+    --foreground: 48 50% 92%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 16 85% 60%;
     --accent-foreground: 0 0% 100%;
-    --border: 0 0% 16%;
-    --ring: 35 45% 55%;
-    --primary: 40 20% 94%;
-    --primary-foreground: 0 0% 6%;
+    --border: 220 15% 20%;
+    --ring: 16 85% 60%;
+    --primary: 48 50% 92%;
+    --primary-foreground: 220 25% 10%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
   }
@@ -99,6 +100,11 @@
 
   .bg-brand-secondary {
     background-color: var(--brand-secondary, hsl(var(--accent)));
+  }
+
+  /* Fun paw-print utility badge */
+  .paw-badge {
+    @apply inline-flex items-center gap-1 text-accent font-semibold;
   }
 }
 

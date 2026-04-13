@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Lato, Inter } from 'next/font/google'
+import { Nunito, Nunito_Sans } from 'next/font/google'
 import { Providers } from './providers'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
@@ -14,14 +14,14 @@ import dynamic from 'next/dynamic'
 
 const CookieConsent = dynamic(() => import('@/components/cookie-consent'))
 
-const heading = Lato({
+const heading = Nunito({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['700', '800', '900'],
   variable: '--font-heading',
   display: 'swap',
 })
 
-const body = Inter({
+const body = Nunito_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--font-body',
@@ -30,10 +30,10 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Store — Modern Commerce',
-    template: '%s | Store',
+    default: 'PawShop 🐾 — Everything Your Pet Deserves',
+    template: '%s | PawShop',
   },
-  description: 'Discover curated products crafted with care. A modern ecommerce experience.',
+  description: 'The happiest pet store on the internet! Discover toys, treats, accessories, and gear that your furry friends will absolutely love.',
 }
 
 export default function RootLayout({
